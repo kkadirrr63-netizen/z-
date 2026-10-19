@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özür Dilerim Zeliş 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pastel-pink: #FFD1DC;
+            --cream: #FFFDD0;
+            --rose-gold: #B76E79;
+            --lavender: #E6E6FA;
+            --dark-pink: #E890A0;
+            --soft-white: #FFFAF0;
+            --text-color: #555;
+            --bg-gradient: linear-gradient(135deg, var(--cream) 0%, var(--lavender) 50%, var(--pastel-pink) 100%);
+            --card-bg: var(--soft-white);
+        }
+
+        body.dark {
+            --text-color: #f0e6e8;
+            --bg-gradient: linear-gradient(135deg, #2a2426 0%, #3a2f33 50%, #4a3640 100%);
+            --card-bg: #3a2f33;
+            --soft-white: #3a2f33;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text-color);
+            transition: background 0.6s ease, color 0.3s ease;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            background: var(--soft-white);
+            border: 2px solid var(--rose-gold);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(183, 110, 121, 0.3);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--rose-gold);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--dark-pink);
+            animation: fadeInUp 2s ease-out;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Letter Section */
+        .letter-section {
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .letter-card {
+            background: var(--card-bg);
+            max-width: 700px;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(183, 110, 121, 0.2);
+            border: 2px solid var(--rose-gold);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .letter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(183, 110, 121, 0.3);
+        }
+
+        .letter-card::before {
+            content: '💌';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            background: var(--rose-gold);
+            padding: 15px 20px;
+            border-radius: 50%;
+        }
+
+        .letter-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .letter-card p {
+            line-height: 1.8;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .letter-card .signature {
+            text-align: right;
+            font-style: italic;
+            color: var(--rose-gold);
+            margin-top: 2rem;
+            font-weight: 500;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .memory-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(183, 110, 121, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--pastel-pink);
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(183, 110, 121, 0.25);
+        }
+
+        .memory-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .memory-card h3 {
+            color: var(--rose-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .memory-card p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Promises Section */
+        .promises-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .promises-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .promise-card {
+            background: var(--card-bg);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(183, 110, 121, 0.2);
+            border: 2px solid var(--rose-gold);
+            text-align: left;
+        }
+
+        .promise-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px dashed rgba(183, 110, 121, 0.3);
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .promise-item:last-child {
+            border-bottom: none;
+        }
+
+        .promise-checkbox {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--rose-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--rose-gold);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .promise-item.checked .promise-checkbox {
+            background: var(--rose-gold);
+            color: white;
+        }
+
+        .promise-item.checked {
+            color: var(--rose-gold);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(183, 110, 121, 0.15);
+            border: 1px solid var(--pastel-pink);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--rose-gold);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        /* Counter Section */
+        .counter-section {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .counter-card {
+            background: var(--card-bg);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(183, 110, 121, 0.2);
+            border: 2px solid var(--rose-gold);
+        }
+
+        .counter-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .counter-display {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-pink);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* Random Apology Section */
+        .random-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .random-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .random-message-box {
+            background: var(--card-bg);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(183, 110, 121, 0.2);
+            border: 2px dashed var(--rose-gold);
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-style: italic;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-random {
+            background: linear-gradient(135deg, var(--rose-gold), var(--dark-pink));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(183, 110, 121, 0.3);
+        }
+
+        .btn-random:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(183, 110, 121, 0.5);
+        }
+
+        /* Affetme Section */
+        .affetme-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .affetme-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .btn {
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(183, 110, 121, 0.3);
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, var(--rose-gold), var(--dark-pink));
+            color: white;
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(183, 110, 121, 0.5);
+        }
+
+        .btn-no {
+            background: var(--lavender);
+            color: var(--rose-gold);
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .btn-no:hover {
+            transform: scale(1.05);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            animation: confetti-fall 3s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Cursor Sparkle */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1rem;
+            z-index: 9999;
+            animation: sparkleFade 1s ease-out forwards;
+        }
+
+        @keyframes sparkleFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0) translateY(-20px); }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--soft-white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(183, 110, 121, 0.4);
+            text-align: center;
+            z-index: 1000;
+            border: 3px solid var(--rose-gold);
+            animation: popIn 0.5s ease-out;
+            max-width: 90%;
+        }
+
+        @keyframes popIn {
+            from { transform: translate(-50%, -50%) scale(0); }
+            to { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .success-message h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--rose-gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-message .close-btn {
+            margin-top: 1.5rem;
+            background: var(--rose-gold);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .success-message .close-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--rose-gold), var(--dark-pink));
+            color: white;
+        }
+
+        footer p {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .letter-card, .promise-card, .counter-card {
+                padding: 2rem;
+            }
+            .letter-card h2, .promises-section h2, .stats-section h2,
+            .affetme-section h2, .random-section h2 {
+                font-size: 1.5rem;
+            }
+            .gallery-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 200px;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            font-size: 2rem;
+            color: var(--rose-gold);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Tema değiştir">🌙</button>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-hearts" id="hearts"></div>
+        <h1>Zeliş 💕</h1>
+        <p>Özür Dilerim...</p>
+        <div class="scroll-indicator">
+            <span>👇</span>
+        </div>
+    </section>
+
+    <!-- Letter Section -->
+    <section class="letter-section">
+        <div class="letter-card">
+            <h2>Zeliş,</h2>
+            <p>
+                Seni kırdığım için gerçekten üzgünüm. Biraz düşündükten sonra hatamın farkına vardım ve içtenlikle özür diliyorum.
+            </p>
+            <p>
+                Senin tanıdığım en güzel insanlardan birisin. Gülüşün, enerjin ve olumlu tavrın her zaman çok iyi geliyor. Yanında olmak keyifli.
+            </p>
+            <p>
+                Hata yaptım, bunu kabul ediyorum. Seninle konuşmaya başladığımdan beri keyif alıyorum ve bunu bozmak istemiyorum. Umarım bana bir şans daha verirsin.
+            </p>
+            <p class="signature">
+                Özür Dilerim 💕
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2>Zeliş'in Özellikleri 💖</h2>
+        <div class="gallery-grid">
+            <div class="memory-card">
+                <div class="emoji">🌟</div>
+                <h3>Pozitif Enerji</h3>
+                <p>Her zaman pozitif tavrın ve enerjin ortamı güzelleştiriyor.</p>
+            </div>
+            <div class="memory-card">
+                <div class="emoji">😊</div>
+                <h3>Güzel Gülüş</h3>
+                <p>Gülüşün çok güzel, insanı mutlu ediyor.</p>
+            </div>
+            <div class="memory-card">
+                <div class="emoji">🌸</div>
+                <h3>Güzel İnsan</h3>
+                <p>İç güzelliğin ve karakterin çok değerli.</p>
+            </div>
+            <div class="memory-card">
+                <div class="emoji">🤗</div>
+                <h3>Sıcakkanlı</h3>
+                <p>İlgili ve sıcakkanlı tavrın çok samimi.</p>
+            </div>
+            <div class="memory-card">
+                <div class="emoji">💬</div>
+                <h3>İyi Konuşmacı</h3>
+                <p>Seninle sohbet etmek keyifli ve eğlenceli.</p>
+            </div>
+            <div class="memory-card">
+                <div class="emoji">💪</div>
+                <h3>Güçlü Karakter</h3>
+                <p>Kendine güvenen ve güçlü bir kişiliğin var.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promises Section -->
+    <section class="promises-section">
+        <h2>Sana Verdiğim Sözler 🤝</h2>
+        <div class="promise-card" id="promiseCard">
+            <div class="promise-item" onclick="togglePromise(this)">
+                <span class="promise-checkbox">✓</span>
+                <span>Hata yaptım, kabul, ama iyi niyetliyim.</span>
+            </div>
+            <div class="promise-item" onclick="togglePromise(this)">
+                <span class="promise-checkbox">✓</span>
+                <span>Seninle her konuşma güzel geçiyor, bozmak istemedim.</span>
+            </div>
+            <div class="promise-item" onclick="togglePromise(this)">
+                <span class="promise-checkbox">✓</span>
+                <span>Farkında olmadan kırdıysam, özür dilerim.</span>
+            </div>
+            <div class="promise-item" onclick="togglePromise(this)">
+                <span class="promise-checkbox">✓</span>
+                <span>Google'da "nasıl özür dilenir" diye aratmadım, kalpten yazdım 💁</span>
+            </div>
+            <div class="promise-item" onclick="togglePromise(this)">
+                <span class="promise-checkbox">✓</span>
+                <span>Bunu okuyorsan zaten affetmeyi düşünüyorsundur 😄</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <h2>Zeliş Hakkında Eğlenceli İstatistikler 📊</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-value">%100</span>
+                <span class="stat-label">Gülüş Güzelliği</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">%99</span>
+                <span class="stat-label">Pozitif Enerji</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">∞</span>
+                <span class="stat-label">Sabır Kapasitesi</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">%95</span>
+                <span class="stat-label">Samimiyet</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">10/10</span>
+                <span class="stat-label">İnsan Olma</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">%100</span>
+                <span class="stat-label">Affetme Potansiyeli</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="counter-section">
+        <div class="counter-card">
+            <h3>Özür İstemeye Karar Vereli... ⏰</h3>
+            <div class="counter-display" id="counterDisplay">00:00:00:00</div>
+            <p style="margin-top:1rem;color:var(--text-color);font-size:0.9rem;">(Gün:Saat:Dakika:Saniye)</p>
+        </div>
+    </section>
+
+    <!-- Random Apology Section -->
+    <section class="random-section">
+        <h2>Başka Bir Özür İster Misin? 🎲</h2>
+        <div class="random-message-box" id="randomMessageBox">
+            Butona bas, sana farklı bir özür göstereyim 😊
+        </div>
+        <button class="btn-random" onclick="showRandomApology()">Yeni Özür Göster ✨</button>
+    </section>
+
+    <!-- Affetme Section -->
+    <section class="affetme-section">
+        <h2>Beni affeder misin Zeliş? 🥺</h2>
+        <div class="buttons-container">
+            <button class="btn btn-yes" onclick="showConfetti()">Evet 💕</button>
+            <button class="btn btn-no" id="noBtn" onmouseover="moveButton()">Hayır 😢</button>
+        </div>
+    </section>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <h3>Teşekkür Ederim! 💖</h3>
+        <p>Teşekkürler Zeliş, senden de bu beklenirdi 😊</p>
+        <p>Bu özürümü kabul ettiğin için teşekkürler 🌸</p>
+        <p>Seninle konuşmaya devam etmek isterim 💕</p>
+        <button class="close-btn" onclick="closeMessage()">Kapat</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Bu özür sitesini senin için kodladım, inan artık 😄</p>
+    </footer>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '🌸', '✨'];
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Move no button away from cursor
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.querySelector('.buttons-container');
+            const containerRect = container.getBoundingClientRect();
+
+            const randomX = Math.random() * (containerRect.width - 200);
+            const randomY = Math.random() * (containerRect.height - 50);
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        // Show confetti animation
+        function showConfetti() {
+            const colors = ['#FFD1DC', '#B76E79', '#E6E6FA', '#FFFAF0', '#E890A0', '#FF69B4'];
+            const shapes = ['■', '●', '▲', '★', '♥'];
+
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 3000);
+                }, i * 30);
+            }
+
+            // Show success message
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'block';
+            }, 500);
+        }
+
+        // Close success message
+        function closeMessage() {
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        // Toggle promise checkbox
+        function togglePromise(item) {
+            item.classList.toggle('checked');
+        }
+
+        // Random apology messages
+        const apologyMessages = [
+            "Bu seferlik affet, bir daha olmaz, söz 💕",
+            "Hata benim, sen kusursuzsun 🌸",
+            "Bunu yapmamalıydım, özür dilerim 🙏",
+            "Seni üzdüğüm için kendime kızdım 😔",
+            "Bir daha asla seni kırmayacağım, söz 🤝",
+            "Arkadaşlığını kaybetmekten korkuyorum 🥺",
+            "Lütfen bana bir şans daha ver 💫",
+            "Hatalarından ders alan arkadaşın olmaya söz veriyorum 📚",
+            "Bu özür kalpten geliyor, inan 💌",
+            "Seni güldürmek için buradayım, bir şans ver 😄",
+            "Kırdığım güveni yeniden kazanmak istiyorum 🔨",
+            "Sana haksızlık ettim, bunu telafi edeceğim ✨"
+        ];
+
+        let lastApologyIndex = -1;
+        function showRandomApology() {
+            const box = document.getElementById('randomMessageBox');
+            let index;
+            do {
+                index = Math.floor(Math.random() * apologyMessages.length);
+            } while (index === lastApologyIndex && apologyMessages.length > 1);
+            lastApologyIndex = index;
+
+            box.style.opacity = '0';
+            setTimeout(() => {
+                box.textContent = '"' + apologyMessages[index] + '"';
+                box.style.opacity = '1';
+            }, 300);
+        }
+
+        // Friendship counter (time since page is "apology" — set a fixed start)
+        const apologyStartDate = new Date().getTime();
+        function updateCounter() {
+            const now = new Date().getTime();
+            const diff = now - apologyStartDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('counterDisplay').textContent =
+                String(days).padStart(2, '0') + ':' +
+                String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCounter, 1000);
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+
+        // Cursor sparkle trail
+        const sparkleEmojis = ['✨', '💫', '🌟', '🌸'];
+        let lastSparkle = 0;
+        document.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastSparkle < 80) return; // throttle
+            lastSparkle = now;
+
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 1000);
+        });
+
+        // Initialize
+        createHearts();
+
+        // Add touch support for mobile
+        document.getElementById('noBtn').addEventListener('touchstart', moveButton);
+    </script>
+</body>
+</html>
